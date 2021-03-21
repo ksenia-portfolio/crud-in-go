@@ -1,0 +1,148 @@
+{{define "view_customers"}}
+
+    {{template "header"}}
+    <main role="main" class="inner cover card-body">
+
+        <div style="left: -250px; position: relative">
+
+            <table class="table table-dark table-striped mt-5" style="width: 100%">
+                <thead>
+                <tr>
+                    <th colspan="8" class="table-active">
+                        <div class="container">
+                            <h1 class="cover-heading" style="min-width: 700px; margin-inline: auto">Customers DB
+                                Manager</h1>
+
+                            <!-- SEARCHING COMPONENT -->
+                            <form class="row text-center" style="margin-left: 25%; width: 700px"
+                                  action="/search-customer"
+                                  method="post">
+                                            <span class="ml-2">
+                                                <input type="search" name="first_name" class="form-control mr-3"
+                                                       placeholder="First name"/>
+                                            </span>
+                                <span class="ml-2">
+                                                 <input type="search" name="last_name" class="form-control"
+                                                        placeholder="Last name"/>
+                                            </span>
+                                <span class="ml-2">
+                                                <button class="btn my-search-button mr-3" value="submit">Search</button>
+                                            </span>
+
+                            </form>
+                            <!-- END OF SEARCHING-->
+
+                        </div>
+
+                    </th>
+                </tr>
+                <tr>
+                    <th scope="row">
+                        {{ if . }}
+                            <button class="btn text-white font-weight-bold" id="s-id">Id</button>
+                        {{ else}}
+                            <button class="btn text-white font-weight-bold" id="s-id" disabled>Id</button>
+                        {{ end }}
+                    </th>
+                    <th scope="col">
+                        {{ if . }}
+                            <button class="btn text-white font-weight-bold" id="s-first">First_name</button>
+                        {{ else }}
+                            <button class="btn text-white font-weight-bold" id="s-first" disabled>First_name</button>
+                        {{end}}
+                    </th>
+                    <th scope="col">
+                        {{if . }}
+                            <button class="btn text-white font-weight-bold" id="s-last">Last_name</button>
+                        {{else}}
+                            <button class="btn text-white font-weight-bold" id="s-last" disabled>Last_name</button>
+                        {{end}}
+                    </th>
+                    <th scope="col">
+                        {{if .}}
+                            <button class="btn text-white font-weight-bold" id="s-dob">Birthday</button>
+                        {{else}}
+                            <button class="btn text-white font-weight-bold" id="s-dob" disabled>Birthday</button>
+                        {{end}}
+                    </th>
+                    <th scope="col">
+                        {{if .}}
+                            <button class="btn text-white font-weight-bold" id="s-gender">Gender</button>
+                        {{else}}
+                            <button class="btn text-white font-weight-bold" id="s-gender" disabled>Gender</button>
+                        {{end}}
+                    </th>
+                    <th scope="col">
+                        {{if .}}
+                            <button class="btn text-white font-weight-bold" id="s-email">Email</button>
+                        {{else}}
+                            <button class="btn text-white font-weight-bold" id="s-email" disabled>Email</button>
+                        {{end}}
+                    </th>
+                    <th scope="col">
+                        {{if .}}
+                        <button class="btn text-white font-weight-bold" id="s-address">Address</button>
+                        {{else}}
+                        <button class="btn text-white font-weight-bold" id="s-address" disabled>Address</button>
+                        {{end}}
+                    </th>
+                    <th scope="col"></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tbody>
+                {{ range . }}
+                    <tr>
+                        <th scope="row">{{ .Id }}</th>
+                        <td>{{ .FirstName }}</td>
+                        <td>{{ .LastName }}</td>
+                        <td>{{ .FormatDOB }}</td>
+                        <td>{{ .Gender }}</td>
+                        <td>{{ .Email }}</td>
+                        <td>{{ .Address }}</td>
+                        <td>
+                            <form action="/delete-customer/{{ .Id }}" method="post" novalidate>
+                                <a href="/view-customer/{{.Id}}" class="btn btn-info my-small-button">
+                                    <div class="my-text-inside-sm-btn">View</div>
+                                </a>
+                                <a href="/update-customer/{{.Id}}" class="btn btn-success my-small-button">
+                                    <div class="my-text-inside-sm-btn">Update</div>
+                                </a>
+                                <a>
+                                    <button class="btn btn-danger my-small-button" type="submit">
+                                        <div class="my-text-inside-sm-btn">Delete</div>
+                                    </button>
+                                </a>
+                            </form>
+                        </td>
+                    </tr>
+                {{ else }}
+                    <tr>
+                        <td colspan="7"><p class="lead">No customers match your criteria. Please try again.</p>
+                        </td>
+                        <td>
+                            <a class="btn btn-info my-small-button disabled">
+                                <div class="my-text-inside-sm-btn">View</div>
+                            </a>
+                            <a class="btn btn-success my-small-button disabled">
+                                <div class="my-text-inside-sm-btn">Update</div>
+                            </a>
+                            <a>
+                                <button class="btn btn-danger my-small-button" disabled>
+                                    <div class="my-text-inside-sm-btn">Delete</div>
+                                </button>
+                            </a>
+                        </td>
+                    </tr>
+                {{ end }}
+                </tbody>
+                <tfoot>
+                <th colspan="8">
+                </th>
+                </tfoot>
+            </table>
+        </div>
+    </main>
+    {{template "footer"}}
+
+{{end}}

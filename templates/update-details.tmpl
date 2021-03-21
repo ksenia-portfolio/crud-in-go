@@ -1,0 +1,54 @@
+{{define "update"}}
+
+    {{template "header"}}
+    <main role="main" class="inner cover">
+        <h1 class="cover-heading p-5">Update Customer Details</h1>
+        <form action="/confirm-update-customer/{{ .Id }}" method="post" novalidate style="width: 668px">
+
+            <p class="lead" style="float: left"><strong>Customer id: </strong> <em style="margin-left: 25px">{{ .Id}}</em></p>
+            <br>
+
+            <input type="text" name="first_name" id="first_name" placeholder="First name" class="form-control" value="{{ .FirstName}}">
+            {{with .Errors.FirstName}}
+                <p class="my-error">{{ . }}</p>
+            {{end}}
+            <br>
+
+            <input type="text" name="last_name" id="last_name" placeholder="Last name" class="form-control" value="{{ .LastName}}">
+            {{with .Errors.LastName}}
+                <p class="my-error">{{ . }}</p>
+            {{end}}
+            <br>
+
+            <input type="date" name="dob" id="dob" class="form-control" value="{{ .DOB}}">
+            {{with .Errors.DOB}}
+                <p class="my-error">{{ . }}</p>
+            {{end}}
+            <br>
+
+            <p class="lead" style="float: left"><strong>Gender: </strong> <em style="margin-left: 50px">{{ .Gender}}</em></p>
+            <br><br>
+
+            <input type="email" name="email" id="email" placeholder="Email address" class="form-control" value="{{ .Email}}">
+            {{with .Errors.Email}}
+                <p class="my-error">{{ . }}</p>
+            {{end}}
+            <br>
+
+            <input type="text" name="address" id="address" placeholder="Address" class="form-control" value="{{ .Address}}">
+            {{with .Errors.Address}}
+                <p class="my-error">{{ . }}</p>
+            {{end}}
+
+            <p class="lead mt-5" style="float: right">
+            <button class="btn my-button" type="submit">Submit</button>
+            </p>
+
+            <p class="lead mt-5 mr-2" style="float: right">
+                <a class="btn my-cancel-button" href="/view-customers">Cancel</a>
+            </p>
+        </form>
+    </main>
+    {{template "footer"}}
+
+{{end}}

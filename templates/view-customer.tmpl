@@ -1,0 +1,31 @@
+{{define "customer_info"}}
+
+    {{template "header"}}
+        <main role="main" class="cover" style="width: 668px">
+            <h1 class="cover-heading p-5">Customer Details</h1>
+            <div class="text-left">
+                <p class="lead"><strong>Id: </strong><em style="margin-left: 150px">{{ .Id}}</em></p>
+                <br>
+                <p class="lead"><strong>First name: </strong><em style="margin-left: 55px">{{ .FirstName}}</em></p>
+                <br>
+                <p class="lead"><strong>Last name: </strong><em style="margin-left: 55px">{{ .LastName}}</em></p>
+                <br>
+                <p class="lead"><strong>Birth date: </strong><em style="margin-left: 65px">{{ .FormatDOB}}</em></p>
+                <br>
+                <p class="lead"><strong>Gender: </strong><em style="margin-left: 90px">{{ .Gender}}</em></p>
+                <br>
+                <p class="lead"><strong>E-mail: </strong><em style="margin-left: 100px">{{ .Email}}</em></p>
+                <br>
+                <p class="lead"><strong>Address: </strong><em style="margin-left: 80px">{{ .Address}}</em></p>
+                <br>
+            </div>
+                <p class="lead mt-5" style="float: right">
+                    <a href="/update-customer/{{.Id}}" class="btn my-button px-4">Edit</a>
+                </p>
+            <p class="lead mt-5 mr-2" style="float: right">
+                <a class="btn my-cancel-button" href="/view-customers">Go Back</a>
+            </p>
+        </main>
+    {{template "footer"}}
+
+{{end}}

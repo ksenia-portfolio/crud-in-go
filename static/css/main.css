@@ -1,0 +1,97 @@
+.my-brand{
+    color: #31bc44;
+    font-weight: bold;
+}
+
+.my-button{
+    background: #31bc44;
+    color: white;
+}
+
+.my-cancel-button{
+    background: #db9e08;
+    color: white;
+}
+
+.my-button:hover{
+    background: #2ef348;
+    cursor: pointer;
+}
+
+.my-cancel-button:hover {
+    background: #ffbf19;
+    cursor: pointer;
+}
+
+.my-button:active{
+    color: white;
+    background: #227a2e;
+    cursor: grabbing;
+}
+
+.my-cancel-button:active{
+    color: white;
+    background: #886205;
+    cursor: grabbing;
+}
+
+.my-error{
+    color: red;
+}
+
+.my-small-button{
+    width: 75px;
+    height: 20px;
+    font-size: 15px;
+    padding-bottom: 20px;
+    padding-top: -5px;
+}
+.my-text-inside-sm-btn{
+    text-align: center;
+    margin-top: -5px;
+}
+
+.my-search-button{
+    background: #0690b5;
+    color: white;
+    text-shadow: 1px 1px rgba(00, 00, 00, 0.1), 1px 1px rgba(00, 00, 00, 0.2);
+}
+.my-search-button:hover{
+    background: #08b6e5;
+    color: white;
+}
+
+.my-search-button:active{
+    color: white;
+    background: #03657e;
+    cursor: grabbing;
+}
+
+#s-id, #s-first, #s-last, #s-dob, #s-gender, #s-email, #s-address{
+    background: none;
+    border: none;
+    color: white;
+    font-weight: bold;
+}
+
+.my-form-button{
+    background: #31bc44;
+    border: none;
+    color: white;
+    padding: 9px 20px;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 1px 1px rgba(00, 00, 00, 0.1), 2px 2px rgba(00, 00, 00, 0.2);
+    display: inline-block;
+    font-size: 19px;
+}
+.my-form-button:hover{
+    background: #2ef348;
+    cursor: pointer;
+}
+
+.my-form-button:active{
+    color: white;
+    background: #227a2e;
+    cursor: grabbing;
+}

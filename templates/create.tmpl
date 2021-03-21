@@ -1,0 +1,56 @@
+{{define "create"}}
+
+    {{template "header"}}
+    <main role="main" class="inner cover">
+        <h1 class="cover-heading p-5">Create New Customer</h1>
+        <form action="/create-customer" method="post" novalidate style="width: 668px">
+
+            <input type="text" name="first_name" id="first_name" placeholder="First name" class="form-control" value="{{ .FirstName}}">
+            {{with .Errors.FirstName}}
+                <p class="my-error">{{ . }}</p>
+            {{end}}
+            <br>
+
+            <input type="text" name="last_name" id="last_name" placeholder="Last name" class="form-control" value="{{ .LastName}}">
+            {{with .Errors.LastName}}
+                <p class="my-error">{{ . }}</p>
+            {{end}}
+            <br>
+
+            <input type="date" name="dob" id="dob" class="form-control" value="{{ .DOB}}">
+            {{with .Errors.DOB}}
+                <p class="my-error">{{ . }}</p>
+            {{end}}
+            <br>
+
+            <input type="radio" name="gender" id="gender" value="Male"> Male <span class="pl-5"><input type="radio" name="gender" id="gender" value="Female"> Female</span>
+            {{with .Errors.Gender}}
+                <p class="my-error">{{ . }}</p>
+            {{end}}
+            <br>
+            <br>
+
+            <input type="email" name="email" id="email" placeholder="Email address" class="form-control" value="{{ .Email}}">
+            {{with .Errors.Email}}
+                <p class="my-error">{{ . }}</p>
+            {{end}}
+            <br>
+
+            <input type="text" name="address" id="address" placeholder="Address" class="form-control" value="{{ .Address}}">
+            {{with .Errors.Address}}
+                <p class="my-error">{{ . }}</p>
+            {{end}}
+            <br>
+
+            <p class="lead mt-5" style="float: right">
+                <button class="btn my-form-button" type="submit">Submit</button>
+            </p>
+            <p class="lead mt-5 mr-2" style="float: right">
+                <a class="btn my-cancel-button" href="/view-customers">Cancel</a>
+            </p>
+        </form>
+
+    </main>
+    {{template "footer"}}
+
+{{end}}
